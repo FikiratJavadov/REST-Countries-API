@@ -26,11 +26,13 @@ header .nav h4 {
 header .nav p {
   margin-bottom: 0;
   font-size: 14px;
+  cursor: pointer;
 }
 
 header .nav p span {
   font-size: 13px;
   padding-right: 5px;
+  pointer-events: none;
 }
 
 main {
@@ -129,4 +131,103 @@ main #countries .content ul li {
 
 main #countries .content ul li span {
   color: #a09999;
+}
+
+main #info {
+  background-color: #202D36;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: none;
+}
+
+main #info .back {
+  color: white;
+  display: flex;
+  align-items: center;
+  background-color: #2b3743;
+  display: inline-block;
+  flex-direction: row;
+  padding: 8px 29px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+main #info .back p {
+  margin-bottom: 0;
+  padding-left: 10px;
+  display: inline-block;
+}
+
+main #info .big-img img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+}
+
+main #info h1 {
+  color: white !important;
+  margin-bottom: 4rem;
+}
+
+main #info .p {
+  padding: 0 5rem;
+}
+
+main #info .big-info {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+main #info .big-info ul {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+main #info .big-info ul li {
+  list-style: none;
+  font-size: 14px;
+}
+
+main #info .borders {
+  color: white;
+}
+
+main #info .borders p {
+  margin-bottom: 0;
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+main #info .first span,
+main #info .second span {
+  color: #969292;
+  font-weight: 300px;
+  font-size: 13px;
+}
+
+main #info .borders p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+main #info .borders span {
+  padding: 0px 10px;
+  border-radius: 4px;
+  background-color: #2b3743;
+  margin-left: 10px;
+  line-height: 2rem;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+main #info .borders .border-show {
+  justify-content: flex-start;
 }
