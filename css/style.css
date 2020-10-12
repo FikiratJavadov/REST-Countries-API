@@ -2,16 +2,31 @@
   font-family: 'Nunito Sans', sans-serif;
 }
 
+:root {
+  --background-tag: white;
+  --background-back: #2B3743;
+  --box-shadow: none;
+  --background-color: #202D36;
+}
+
 body {
-  background-color: #202D36;
+  background-color: var(--background-color);
+}
+
+body.white {
+  --background-color: #FAFAFA;
+  --background-tag: hsl(200, 15%, 8%);
+  --background-back: #FFFFFF;
+  --box-shadow: 0px 0px 2px 0px grey;
 }
 
 header {
-  background-color: #2b3743;
+  background-color: var(--background-back);
+  box-shadow: var(--box-shadow);
 }
 
 header .nav {
-  color: white;
+  color: var(--background-tag);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,58 +61,64 @@ main #search .search form {
 }
 
 main #search .search form .one {
-  color: white;
-  background-color: #2b3743;
+  color: var(--background-tag);
+  background-color: var(--background-back);
   padding: 10px;
   border-radius: 5px;
+  box-shadow: var(--box-shadow);
 }
 
 main #search .search form .one i {
   padding: 0 10px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 main #search .search form .one input {
   border: none;
   outline: none;
-  background-color: #2b3743;
-  color: white;
-  font-size: 14px;
-  min-width: 300px;
-  max-width: 300px;
+  background-color: var(--background-back);
+  color: var(--background-tag);
+  font-size: 13px;
 }
 
 main #search .search form .one input::placeholder {
-  color: white;
+  color: var(--background-tag);
 }
 
 main #search .search form .two {
   border-radius: 5px;
+  box-shadow: var(--box-shadow);
 }
 
 main #search .search form .two .dropdown button {
-  font-size: 14px;
+  font-size: 13px;
   padding: 10px;
-  background-color: #2b3743;
+  background-color: var(--background-back);
   border: none !important;
   outline: none !important;
+  color: var(--background-tag);
 }
 
 main #search .search form .two .dropdown .dropdown-menu {
-  background-color: #2b3743;
+  background-color: var(--background-back);
   top: 2% !important;
 }
 
 main #search .search form .two .dropdown .dropdown-menu a {
-  color: white;
+  color: var(--background-tag);
 }
 
 main #search .search form .two .dropdown .dropdown-menu a:hover {
-  background-color: #202D36;
+  background-color: var(--background-back);
 }
 
 main #countries .padding {
   padding: 0 1.5rem;
+}
+
+main #countries .cart {
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
 }
 
 main #countries .img-box {
@@ -114,8 +135,8 @@ main #countries .img-box img {
 
 main #countries .content {
   padding: 1rem;
-  color: white;
-  background-color: #2b3743;
+  color: var(--background-tag);
+  background-color: var(--background-back);
   border-radius: 0px 0px 5px 5px;
 }
 
@@ -134,7 +155,7 @@ main #countries .content ul li span {
 }
 
 main #info {
-  background-color: #202D36;
+  background-color: var(--background-color);
   position: fixed;
   top: 0;
   left: 0;
@@ -145,16 +166,17 @@ main #info {
 }
 
 main #info .back {
-  color: white;
+  color: var(--background-tag);
   display: flex;
   align-items: center;
-  background-color: #2b3743;
+  background-color: var(--background-back);
   display: inline-block;
   flex-direction: row;
   padding: 8px 29px;
   border-radius: 4px;
   margin-bottom: 1rem;
   cursor: pointer;
+  box-shadow: var(--box-shadow);
 }
 
 main #info .back p {
@@ -170,7 +192,7 @@ main #info .big-img img {
 }
 
 main #info h1 {
-  color: white !important;
+  color: var(--background-tag) !important;
   margin-bottom: 4rem;
 }
 
@@ -179,7 +201,7 @@ main #info .p {
 }
 
 main #info .big-info {
-  color: white;
+  color: var(--background-tag);
   display: flex;
   justify-content: space-between;
 }
@@ -195,7 +217,7 @@ main #info .big-info ul li {
 }
 
 main #info .borders {
-  color: white;
+  color: var(--background-tag);
 }
 
 main #info .borders p {
@@ -206,7 +228,7 @@ main #info .borders p {
 
 main #info .first span,
 main #info .second span {
-  color: #969292;
+  color: #7b7777;
   font-weight: 300px;
   font-size: 13px;
 }
@@ -221,7 +243,7 @@ main #info .borders p {
 main #info .borders span {
   padding: 0px 10px;
   border-radius: 4px;
-  background-color: #2b3743;
+  background-color: var(--background-back);
   margin-left: 10px;
   line-height: 2rem;
   font-size: 13px;
@@ -230,4 +252,63 @@ main #info .borders span {
 
 main #info .borders .border-show {
   justify-content: flex-start;
+}
+
+main #info .borders .border-show span {
+  box-shadow: var(--box-shadow);
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+  #info {
+    padding: 0 4rem;
+  }
+  #info h1 {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  #info img {
+    padding: 0 3rem;
+  }
+  #info .b {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-device-width: 767px) {
+  form {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  form .one {
+    display: flex;
+    align-items: center;
+  }
+  .two {
+    margin-top: 2rem;
+  }
+  #countries {
+    padding: 0 3rem;
+  }
+  .first li, .second li {
+    font-size: 12px !important;
+  }
+  #info img {
+    padding: 3rem;
+  }
+  #info h1 {
+    margin-bottom: 1rem !important;
+    text-align: center;
+  }
+  #info .p {
+    padding: 0 1rem !important;
+  }
+  #info .big-info {
+    justify-content: space-between !important;
+  }
+  #info .b {
+    text-align: center;
+  }
+  #info .border-show {
+    justify-content: center !important;
+  }
 }

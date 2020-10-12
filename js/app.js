@@ -7,9 +7,9 @@ const info = document.querySelector("#info");
 const bigImg = document.querySelector(".big-img img");
 const mainInfo = document.querySelector(".p");
 const back = document.querySelector(".back");
-const nav = document.querySelector(".nav p");
+const switcher = document.querySelector(".nav p");
+const content = document.querySelectorAll(".content");
 
-console.log(nav);
 
 //Api:
 let api = `https://restcountries.eu/rest/v2/all`;
@@ -38,9 +38,9 @@ fetch(api)
       let countryName = document.querySelectorAll(".name");
       countryName.forEach((name) => {
         if (name.innerText.toLowerCase().includes(val.toLowerCase())) {
-          name.parentElement.parentElement.style.display = "block";
+          name.parentElement.parentElement.parentElement.style.display = "block";
         } else {
-          name.parentElement.parentElement.style.display = "none";
+          name.parentElement.parentElement.parentElement.style.display = "none";
         }
       });
     });
@@ -54,55 +54,55 @@ fetch(api)
 
           case "Africa":
             if (name.innerText == "Africa") {
-              name.parentElement.parentElement.parentElement.parentElement.style.display =
+              name.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
                 "block";
             } else {
-              name.parentElement.parentElement.parentElement.parentElement.style.display =
+              name.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
                 "none";
             }
             break;
 
           case "America":
             if (name.innerText == "Americas") {
-              name.parentElement.parentElement.parentElement.parentElement.style.display =
+              name.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
                 "block";
             } else {
-              name.parentElement.parentElement.parentElement.parentElement.style.display =
+              name.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
                 "none";
             }
             break;
 
           case "Asia":
             if (name.innerText == "Asia") {
-              name.parentElement.parentElement.parentElement.parentElement.style.display =
+              name.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
                 "block";
             } else {
-              name.parentElement.parentElement.parentElement.parentElement.style.display =
+              name.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
                 "none";
             }
             break;
 
           case "Europe":
             if (name.innerText == "Europe") {
-              name.parentElement.parentElement.parentElement.parentElement.style.display =
+              name.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
                 "block";
             } else {
-              name.parentElement.parentElement.parentElement.parentElement.style.display =
+              name.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
                 "none";
             }
             break;
 
           case "Oceania":
             if (name.innerText == "Oceania") {
-              name.parentElement.parentElement.parentElement.parentElement.style.display =
+              name.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
                 "block";
             } else {
-              name.parentElement.parentElement.parentElement.parentElement.style.display =
+              name.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
                 "none";
             }
             break;
           default:
-            name.parentElement.parentElement.parentElement.parentElement.style.display =
+            name.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
               "block";
         }
       });
@@ -188,24 +188,30 @@ fetch(api)
 
 
         info.style.display = "block";
-        document.querySelector("body").style.overflow="hidden";
+        document.querySelector("body").style.overflow = "hidden";
 
       });
     });
 
     back.addEventListener("click", function () {
-      document.querySelector("body").style.overflow="";
+      document.querySelector("body").style.overflow = "";
       info.style.display = "none";
     });
 
-    
-    
+
+
+
+    switcher.addEventListener("click", function () {
+      document.querySelector("body").classList.toggle("white");
+    });
+
   });
 
 //Functions:
 function show(flag, name, population, region, capital, index, code) {
   row.innerHTML += `
             <div class="col-md-4 col-lg-3 mt-5 padding" data-index = ${index} >
+                        <div class="cart">
                         <div class="img-box">
                             <img class="img-fluid" src="${flag}" alt="">
                         </div>
@@ -216,6 +222,7 @@ function show(flag, name, population, region, capital, index, code) {
                                 <li>Region: <span class="region">${region}</span></li>
                                 <li>Capital: <span>${capital}</span></li>
                             </ul>
+                        </div>
                         </div>
                     </div>`;
 }

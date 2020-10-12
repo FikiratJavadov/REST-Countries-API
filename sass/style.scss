@@ -1,19 +1,32 @@
-@import "variable";
-
 * {
     font-family: 'Nunito Sans', sans-serif;
 }
 
+:root {
+    --background-tag: white;
+    --background-back: #2B3743;
+    --box-shadow: none;
+    --background-color: #202D36;
+}
+
 body {
-    background-color: #202D36;
+    background-color: var(--background-color);
+}
+
+body.white {
+    --background-color: #FAFAFA;
+    --background-tag: hsl(200, 15%, 8%);
+    --background-back: #FFFFFF;
+    --box-shadow: 0px 0px 2px 0px grey;
 }
 
 header {
-    background-color: rgb(43, 55, 67);
+    background-color: var(--background-back);
+    box-shadow: var(--box-shadow);
 
 
     .nav {
-        color: white;
+        color: var(--background-tag);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -51,27 +64,28 @@ main {
                 align-items: center;
 
                 .one {
-                    color: white;
-                    background-color: rgb(43, 55, 67);
+                    color: var(--background-tag);
+                    background-color: var(--background-back);
                     padding: 10px;
                     border-radius: 5px;
+                    box-shadow: var(--box-shadow);
 
                     i {
                         padding: 0 10px;
-                        font-size: 14px;
+                        font-size: 13px;
                     }
 
                     input {
                         border: none;
                         outline: none;
-                        background-color: rgb(43, 55, 67);
-                        color: white;
-                        font-size: 14px;
-                        min-width: 300px;
-                        max-width: 300px;
+                        background-color: var(--background-back);
+                        color: var(--background-tag);
+                        font-size: 13px;
+                        // min-width: 300px;
+                        // max-width: 300px;
 
                         &::placeholder {
-                            color: white;
+                            color: var(--background-tag);
                         }
                     }
                 }
@@ -79,28 +93,30 @@ main {
                 .two {
 
                     border-radius: 5px;
+                    box-shadow: var(--box-shadow);
 
 
 
                     .dropdown {
 
                         button {
-                            font-size: 14px;
+                            font-size: 13px;
                             padding: 10px;
-                            background-color: rgb(43, 55, 67);
+                            background-color: var(--background-back);
                             border: none !important;
                             outline: none !important;
+                            color: var(--background-tag);
                         }
 
                         .dropdown-menu {
-                            background-color: rgb(43, 55, 67);
+                            background-color: var(--background-back);
                             top: 2% !important;
 
                             a {
-                                color: white;
+                                color: var(--background-tag);
 
                                 &:hover {
-                                    background-color: #202D36;
+                                    background-color: var(--background-back);
                                 }
                             }
                         }
@@ -114,6 +130,11 @@ main {
         .padding {
             padding: 0 1.5rem;
 
+        }
+
+        .cart {
+            box-shadow: var(--box-shadow);
+            border-radius: 5px;
         }
 
         .img-box {
@@ -132,8 +153,8 @@ main {
 
         .content {
             padding: 1rem;
-            color: white;
-            background-color: rgb(43, 55, 67);
+            color: var(--background-tag);
+            background-color: var(--background-back);
             border-radius: 0px 0px 5px 5px;
 
             ul {
@@ -153,7 +174,7 @@ main {
     }
 
     #info {
-        background-color: $secondary-color;
+        background-color: var(--background-color);
         position: fixed;
         top: 0;
         left: 0;
@@ -165,16 +186,17 @@ main {
 
 
         .back {
-            color: white;
+            color: var(--background-tag);
             display: flex;
             align-items: center;
-            background-color: $primary-color;
+            background-color: var(--background-back);
             display: inline-block;
             flex-direction: row;
             padding: 8px 29px;
             border-radius: 4px;
             margin-bottom: 1rem;
             cursor: pointer;
+            box-shadow: var(--box-shadow);
 
 
 
@@ -194,7 +216,7 @@ main {
         }
 
         h1 {
-            color: white !important;
+            color: var(--background-tag) !important;
             margin-bottom: 4rem
         }
 
@@ -203,7 +225,7 @@ main {
         }
 
         .big-info {
-            color: white;
+            color: var(--background-tag);
             display: flex;
             justify-content: space-between;
 
@@ -219,7 +241,7 @@ main {
         }
 
         .borders {
-            color: white;
+            color: var(--background-tag);
 
             p {
                 margin-bottom: 0;
@@ -231,7 +253,7 @@ main {
         .first,
         .second {
             span {
-                color: rgb(150, 146, 146);
+                color: rgb(123, 119, 119);
                 font-weight: 300px;
                 font-size: 13px;
             }
@@ -249,18 +271,105 @@ main {
             span {
                 padding: 0px 10px;
                 border-radius: 4px;
-                background-color: $primary-color;
+                background-color: var(--background-back);
                 margin-left: 10px;
                 line-height: 2rem;
                 font-size: 13px;
                 margin-bottom: 5px;
             }
 
-            .border-show{
+            .border-show {
                 justify-content: flex-start;
+
+                span {
+                    box-shadow: var(--box-shadow);
+                }
             }
         }
     }
 
 
 }
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+    #info{
+        padding: 0 4rem;
+        h1 {
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+
+        img{
+            padding: 0 3rem;
+        }
+
+        .b{
+            text-align: center;
+        }
+    }
+}
+
+
+@media only screen and(max-device-width: 767px){
+
+    
+    form{
+        flex-direction: column;
+        align-items: flex-start !important;
+
+        .one{
+            display: flex;
+            align-items:center
+        }
+    }
+
+    .two{
+        margin-top: 2rem;
+    }
+
+    #countries{
+        padding: 0 3rem;
+    }
+
+    .first li, .second li{
+        font-size: 12px !important;
+    }
+    // .one{
+    //     display: flex;
+    //     align-items: center;
+    //     min-width: 0px;
+    // }
+
+    // .two{
+    //     height: 100%;
+    // }
+
+    #info{
+        img{
+            padding: 3rem;
+        }
+
+        h1{
+            margin-bottom: 1rem !important;
+            text-align: center;
+        }
+
+        .p{
+            padding: 0  1rem!important;
+            
+        }
+
+        .big-info{
+            justify-content: space-between !important;
+        }
+        .b{
+            text-align: center;
+        }
+
+        .border-show{
+            justify-content: center !important;
+        }
+    }
+}
+
